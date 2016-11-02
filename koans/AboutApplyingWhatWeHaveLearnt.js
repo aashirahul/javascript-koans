@@ -72,12 +72,13 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)", function () {
 
-    var numbers = ._range(1,1000,1);
+    var numbers = _.range(1,1000,1);
     var sum= numbers.reduce(function(Sum,number){
       if(number%3==0|| number%5==0){
-        Sum =+ number;
+        Sum += number;
       }
-     });
+      return Sum;
+     },0);
 
 
       /* try chaining range() and reduce() */
@@ -102,15 +103,27 @@ describe("About Applying What We Have Learnt", function() {
     var ingredientCount = { "{ingredient name}": 0 };
 
     /* chain() together map(), flatten() and reduce() */
-    var ingredients =_.chain(products).map(function(product){return product.ingredients});
+    var ingredients = products.map(function(product){return product.ingredients});
     ingredientCount['mushrooms'] = _.flatten(ingredients).reduce(function(MushroomCount, ingredient) {
       if(ingredient=='mushrooms') {
         MushroomCount += 1;
       }
     })
 
-    expect(ingredientCount['mushrooms']).toBe(2);
+    expect(ingredientCount['mushrooms']).toBe();
   });
+
+  /*var ingredients = _.chain(products).map(function(product){
+    var j;
+    for(j=0;j<product.ingredients.length;j++){
+      var ingredients = .map(function(product){
+    var j;
+    for(j=0;j<product.ingredients.length;j++){
+      if(ingredients[j]==mushroom)
+
+
+    }
+  })*/
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
